@@ -30,6 +30,10 @@ RESULT = """
 Периметр треугольника = ДЗ
 """
 
+class SimpleError(Exception):
+    def __init__(self, msg):
+        print(msg)
+
 
 def get_number(prompt, to_type, left_limit, right_limit):
     while True:
