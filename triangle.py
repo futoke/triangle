@@ -31,8 +31,13 @@ RESULT = """
 """
 
 class SimpleError(Exception):
-    def __init__(self, msg):
-        print(msg)
+    """Здесь может быть ваша документация"""
+
+    def __init__(self, value):
+        self.value = value
+
+    def __str__(self):
+        return repr(self.value)
 
 
 def get_number(prompt, to_type, left_limit, right_limit):
@@ -48,7 +53,7 @@ def get_number(prompt, to_type, left_limit, right_limit):
                 raise SimpleError(E_CONVERT)
         except SimpleError as se:
             print(se.value)
-        if input(I_CONTINUE).lower() in NEG_ASWERS:
+        if input(I_CONTINUE).lower() in NEG_ANSWERS:
             break
 
 
